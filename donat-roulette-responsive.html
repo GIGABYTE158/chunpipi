@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>🎲 춘삐삐 룰렛</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      /* Фон: картинка с обрезкой под экран */
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url("https://i.postimg.cc/RZSvHw3v/Chat-GPT-Image-1-2025-21-28-52.png")
+                  no-repeat center center fixed;
+      background-size: cover; /* 👈 на телефоне картинка будет обрезана, а не растянута */
+      color: #fff;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      padding: 30px 20px;
+      background: transparent;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #fff;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    }
+    section {
+      padding: 20px;
+      max-width: 900px;
+      margin: 20px auto;
+      background: rgba(0,0,0,0.6);
+      border-radius: 12px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #ffcc00;
+    }
+
+    /* 📜 룰렛 리스트 */
+    .tasks {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .tasks li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      background: rgba(34,34,34,0.8);
+      margin-bottom: 6px;
+      border-radius: 6px;
+    }
+    .tasks li span:first-child {
+      flex: 1;
+      padding-right: 10px;
+      word-wrap: break-word; /* перенос длинных слов */
+      overflow-wrap: break-word;
+    }
+    .tasks li span:last-child {
+      color: #ffcc00;
+      font-weight: bold;
+      min-width: 50px;
+      text-align: right;
+    }
+
+    /* 🎞 Карусель */
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+    }
+    .carousel {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+      gap: 20px;
+      padding: 20px;
+    }
+    .video {
+      flex: 0 0 300px;
+      height: 530px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: black;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Стрелки */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.6);
+      border: none;
+      color: white;
+      font-size: 2em;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+    }
+    .arrow:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    .arrow:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+    .left { left: 10px; }
+    .right { right: 10px; }
+
+    /* 📱 Адаптивность */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8em;
+      }
+      .tasks li {
+        font-size: 0.95em;
+      }
+      .video {
+        flex: 0 0 90%;
+        height: 70vh;
+      }
+      .arrow {
+        font-size: 1.5em; /* 👈 меньше стрелки */
+        padding: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎲 춘삐삐 룰렛</h1>
+  </header>
+
+  <!-- 📜 룰렛 리스트 -->
+  <section>
+    <h2>📜 룰렛 리스트</h2>
+    <ul class="tasks">
+      <li><span>꽝</span><span>15%</span></li>
+      <li><span>원하는 매도대사</span><span>5%</span></li>
+      <li><span>아잉</span><span>7.8%</span></li>
+      <li><span>애교 멘트</span><span>4%</span></li>
+      <li><span>노래 1절</span><span>4%</span></li>
+      <li><span>춘삐삐실사랜덤조각</span><span>2%</span></li>
+      <li><span>춘롤라 1절 듣기</span><span>1%</span></li>
+      <li><span>개빡치는게임 1시간30분이상</span><span>0.1%</span></li>
+      <li><span>남자목소리 1분</span><span>4%</span></li>
+      <li><span>오빠체</span><span>6%</span></li>
+      <li><span>냥냥체</span><span>7%</span></li>
+      <li><span>멍멍체</span><span>7%</span></li>
+      <li><span>대신 욕해주기</span><span>4%</span></li>
+      <li><span>청자님 칭찬해드림</span><span>6%</span></li>
+      <li><span>1분 여친</span><span>4%</span></li>
+      <li><span>청자님 닉넴으로 3행시</span><span>3%</span></li>
+      <li><span>방종</span><span>0.1%</span></li>
+      <li><span>사랑해</span><span>7%</span></li>
+      <li><span>원하는 영화·드라마 대사 한구절</span><span>5%</span></li>
+      <li><span>금지어 정해주기 30분 (실패시 원하는 액션 1개)</span><span>3%</span></li>
+      <li><span>방송연장 +10분</span><span>2.9%</span></li>
+      <li><span>방종 쉴드권</span><span>0.1%</span></li>
+      <li><span>1분 노예</span><span>2%</span></li>
+    </ul>
+  </section>
+
+  <!-- 🎬 Карусель -->
+  <section>
+    <h2>🎬 춘삐삐 클립</h2>
+    <div class="carousel-container">
+      <button class="arrow left" onclick="moveCarousel(-1)">&#10094;</button>
+      <div class="carousel" id="carousel">
+        <div class="video"><iframe src="https://chzzk.naver.com/embed/clip/N4kNr1UTnh" allowfullscreen></iframe></div>
+        <div class="video"><iframe src="https://chzzk.naver.com/embed/clip/MTnzb3ojFJ" allowfullscreen></iframe></div>
+        <div class="video"><iframe src="https://chzzk.naver.com/embed/clip/IENMkWRQBL" allowfullscreen></iframe></div>
+        <div class="video"><iframe src="https://chzzk.naver.com/embed/clip/8PXKoH3ppW" allowfullscreen></iframe></div>
+        <div class="video"><iframe src="https://chzzk.naver.com/embed/clip/fkuQ0jNldO" allowfullscreen></iframe></div>
+        <div class="video"><iframe src="https://chzzk.naver.com/embed/clip/eCfrl6H0iX" allowfullscreen></iframe></div>
+        <div class="video"><iframe src="https://chzzk.naver.com/embed/clip/HWjfUYeDPG" allowfullscreen></iframe></div>
+        <div class="video"><iframe src="https://chzzk.naver.com/embed/clip/GuTGqbTPz0" allowfullscreen></iframe></div>
+        <div class="video"><iframe src="https://chzzk.naver.com/embed/clip/7jl1nP0VNR" allowfullscreen></iframe></div>
+      </div>
+      <button class="arrow right" onclick="moveCarousel(1)">&#10095;</button>
+    </div>
+  </section>
+
+  <script>
+    let currentIndex = 0;
+    const carousel = document.getElementById('carousel');
+    const videos = document.querySelectorAll('.video');
+
+    function moveCarousel(direction) {
+      const videoWidth = videos[0].offsetWidth + 20;
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = 0;
+      if (currentIndex > videos.length - 1) currentIndex = videos.length - 1;
+      carousel.style.transform = `translateX(-${currentIndex * videoWidth}px)`;
+      document.querySelector(".left").disabled = currentIndex === 0;
+      document.querySelector(".right").disabled = currentIndex === videos.length - 1;
+    }
+    moveCarousel(0);
+  </script>
+</body>
+</html>
